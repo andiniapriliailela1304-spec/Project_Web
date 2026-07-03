@@ -35,7 +35,7 @@
 
             <div class="text-center">
 
-                <img src="../assets/images/logo.png"
+                <img src="../assets/img/studyroom.png"
                      class="logo mb-4"
                      alt="Logo">
 
@@ -68,7 +68,7 @@
 
                 <div class="text-center mb-4">
 
-                    <img src="../assets/images/logo.png"
+                    <img src="../assets/img/studyroom.png"
                          width="80"
                          class="mb-3">
 
