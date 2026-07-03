@@ -1,0 +1,174 @@
+/* ===============================
+   GLOBAL
+================================= */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+}
+
+/* ===============================
+   LOGIN PAGE
+================================= */
+
+.login-page{
+    min-height:100vh;
+}
+
+/* ===============================
+   LEFT SIDE
+================================= */
+
+.left-side{
+    background:linear-gradient(135deg,#2E8B57,#1E6F4F);
+    color:#fff;
+}
+
+.logo{
+    width:150px;
+}
+
+.left-side h2{
+    font-weight:bold;
+}
+
+.left-side p{
+    font-size:16px;
+    line-height:28px;
+}
+
+/* ===============================
+   RIGHT SIDE
+================================= */
+
+.login-card{
+
+    width:100%;
+    max-width:430px;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+/* ===============================
+   FORM
+================================= */
+
+.form-label{
+    font-weight:600;
+}
+
+.form-control,
+.form-select{
+
+    height:48px;
+
+    border-radius:10px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    box-shadow:none;
+
+    border:1px solid #2E8B57;
+
+}
+
+/* ===============================
+   BUTTON
+================================= */
+
+.btn-login{
+
+    height:48px;
+
+    border-radius:10px;
+
+    background:#2E8B57;
+
+    color:white;
+
+    font-weight:bold;
+
+    border:none;
+
+    transition:.3s;
+
+}
+
+.btn-login:hover{
+
+    background:#1E6F4F;
+
+    color:white;
+
+}
+
+/* ===============================
+   LINK
+================================= */
+
+a{
+
+    color:#2E8B57;
+
+}
+
+a:hover{
+
+    color:#1E6F4F;
+
+}
+
+/* ===============================
+   ICON PASSWORD
+================================= */
+
+.input-group button{
+
+    border-radius:0 10px 10px 0;
+
+}
+
+/* ===============================
+   MOBILE
+================================= */
+
+@media(max-width:992px){
+
+    .login-card{
+
+        width:95%;
+
+        padding:30px;
+
+    }
+
+}
+.card{
+
+    border-radius:15px;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+}
+
+.navbar{
+
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+}
