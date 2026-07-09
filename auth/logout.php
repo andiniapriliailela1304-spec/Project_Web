@@ -1,8 +1,22 @@
 <?php
+
 session_start();
 
-session_unset();
 session_destroy();
 
-header("Location: ../auth/login.php");
-exit();
+// Hapus Cookie Remember Me
+setcookie(
+
+    "remember_user",
+
+    "",
+
+    time()-3600,
+
+    "/"
+
+);
+
+header("Location: login.php");
+
+exit;

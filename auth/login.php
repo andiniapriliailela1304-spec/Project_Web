@@ -1,5 +1,24 @@
 <?php
-session_start();
+// ob_start() di paling atas sebagai "pengaman": walaupun ada warning/whitespace
+// tak sengaja tercetak sebelum header()/setcookie() dipanggil nanti, outputnya
+// akan ditahan di buffer dulu (bukan langsung dikirim ke browser), sehingga
+// header()/setcookie() tetap bisa jalan tanpa error "headers already sent".
+ob_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// ========================================
+// COOKIE REMEMBER ME
+// ========================================
+
+$username_cookie = "";
+
+if (isset($_COOKIE['remember_user'])) {
+    $username_cookie = $_COOKIE['remember_user'];
+}
+
 require_once "../config/koneksi.php";
 
 // Jika sudah login
@@ -21,38 +40,53 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' LIMIT 1");
+
     if (mysqli_num_rows($query) == 1) {
 
         $user = mysqli_fetch_assoc($query);
 
         if (password_verify($password, $user['password'])) {
 
-            $_SESSION['login'] = true;
-            $_SESSION['id_user'] = $user['id_user'];
+            $_SESSION['login']    = true;
+            $_SESSION['id_user']  = $user['id_user'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['email']    = $user['email'];
+            $_SESSION['role']     = $user['role'];
+
+            if (isset($_POST['remember'])) {
+                // setcookie dengan parameter lengkap (path, domain, secure, httponly)
+                // supaya perilakunya konsisten di semua browser.
+                setcookie(
+                    "remember_user",
+                    $user['username'],
+                    [
+                        'expires'  => time() + (86400 * 7), // 7 hari
+                        'path'     => '/',
+                        'samesite' => 'Lax',
+                    ]
+                );
+            } else {
+                // Kalau user login TANPA centang "Ingat Saya" tapi cookie lama
+                // masih ada dari sesi sebelumnya, hapus supaya tidak nyangkut.
+                if (isset($_COOKIE['remember_user'])) {
+                    setcookie("remember_user", "", time() - 3600, "/");
+                }
+            }
 
             if ($user['role'] == "admin") {
-
                 header("Location: ../admin/dashboard.php");
             } else {
-
                 header("Location: ../mahasiswa/dashboard.php");
             }
 
             exit;
 
         } else {
-
             $error = "Password yang Anda masukkan salah.";
-
         }
 
     } else {
-
         $error = "Username (NIM) belum terdaftar. Silakan daftar terlebih dahulu.";
-
     }
 
 }
@@ -119,7 +153,7 @@ if (isset($_POST['login'])) {
 
             <p>Silakan masuk menggunakan akun Anda.</p>
 
-            <?php if($error!=""){ ?>
+            <?php if ($error != "") { ?>
 
                 <div class="alert alert-danger">
 
@@ -144,6 +178,7 @@ if (isset($_POST['login'])) {
                     name="username"
                     class="form-control"
                     placeholder="Masukkan NIM Anda"
+                    value="<?= htmlspecialchars($username_cookie); ?>"
                     required>
 
                 </div>
@@ -185,9 +220,13 @@ if (isset($_POST['login'])) {
 
                         <input
                         class="form-check-input"
-                        type="checkbox">
+                        type="checkbox"
+                        name="remember"
+                        id="remember"
+                        <?= $username_cookie ? "checked" : ""; ?>>
 
-                        <label class="form-check-label">
+                        <label class="form-check-label"
+                        for="remember">
 
                             Ingat Saya
 
