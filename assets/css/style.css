@@ -1,174 +1,689 @@
 /* ===============================
-   GLOBAL
-================================= */
+   STUDYROOM
+   GLOBAL STYLE
+   Bootstrap 5 + Vanilla CSS
+==================================*/
 
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+    --primary:#1f4d29;
+    --primary-dark:#16391f;
+
+    --secondary:#4f8a52;
+
+    --accent:#bedcbb;
+
+    --success:#22C55E;
+
+    --danger:#EF4444;
+
+    --warning:#F59E0B;
+
+    --background:#f4f8f3;
+
+    --white:#ffffff;
+
+    --text:#1b2e1c;
+
+    --text-light:#64748B;
+
+    --border:#D9E8D7;
+
+    --shadow:0 12px 30px rgba(31,77,41,.15);
+
+    --radius:18px;
+
+}
+
+*{
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f6f9;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* ===============================
-   LOGIN PAGE
-================================= */
-
-.login-page{
-    min-height:100vh;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ===============================
-   LEFT SIDE
-================================= */
+body{
 
-.left-side{
-    background:linear-gradient(135deg,#2E8B57,#1E6F4F);
-    color:#fff;
-}
+    background:var(--background);
 
-.logo{
-    width:150px;
-}
+    color:var(--text);
 
-.left-side h2{
-    font-weight:bold;
-}
-
-.left-side p{
-    font-size:16px;
-    line-height:28px;
-}
-
-/* ===============================
-   RIGHT SIDE
-================================= */
-
-.login-card{
-
-    width:100%;
-    max-width:430px;
-
-    background:#fff;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    overflow-x:hidden;
 
 }
 
-/* ===============================
-   FORM
-================================= */
+/* ======================
+    LINK
+======================*/
 
-.form-label{
-    font-weight:600;
+a{
+    text-decoration:none;
 }
 
-.form-control,
-.form-select{
-
-    height:48px;
-
-    border-radius:10px;
-
+a:hover{
+    text-decoration:none;
 }
 
-.form-control:focus,
-.form-select:focus{
+/* ======================
+    BUTTON
+======================*/
 
-    box-shadow:none;
+.btn-primary{
 
-    border:1px solid #2E8B57;
-
-}
-
-/* ===============================
-   BUTTON
-================================= */
-
-.btn-login{
-
-    height:48px;
-
-    border-radius:10px;
-
-    background:#2E8B57;
-
-    color:white;
-
-    font-weight:bold;
+    background:var(--primary);
 
     border:none;
+
+    border-radius:12px;
+
+    padding:12px 25px;
+
+    font-weight:600;
 
     transition:.3s;
 
 }
 
-.btn-login:hover{
+.btn-primary:hover{
 
-    background:#1E6F4F;
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-success{
+
+    background:var(--secondary);
+
+    border:none;
+
+    border-radius:12px;
+
+}
+
+.btn-success:hover{
+
+    background:#1f4d29;
+
+}
+
+/* ======================
+    CARD
+======================*/
+
+.card{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ======================
+    INPUT
+======================*/
+
+.form-control{
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    padding:12px;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .2rem rgba(31,77,41,.15);
+
+}
+
+/* ======================
+    TITLE
+======================*/
+
+.title{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.subtitle{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+/* ======================
+    SIDEBAR
+======================*/
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:linear-gradient(
+        180deg,
+        #bedcbb 0%,
+        #1f4d29 100%
+    );
+
+    color:white;
+
+    padding:25px 18px;
+
+    overflow-y:auto;
+
+    box-shadow:4px 0 15px rgba(0,0,0,0.15);
+
+}
+
+
+/* LOGO / BRAND */
+
+.sidebar .logo-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+    padding:0 4px;
+
+}
+
+.sidebar .logo-section img.logo{
+
+    width:46px;
+
+    height:46px;
+
+    flex-shrink:0;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 5px 8px rgba(0,0,0,0.25));
+
+}
+
+.sidebar .logo-section h4{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#ffffff;
+
+    white-space:nowrap;
+
+}
+
+.sidebar .logo-section small{
+
+    color:#bedcbb;
+
+    font-size:12px;
+
+}
+
+
+/* MENU */
+
+.sidebar a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:white;
+
+    padding:13px 18px;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+
+/* Hover */
+
+.sidebar a:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:translateX(5px);
+
+}
+
+
+/* MENU AKTIF */
+
+.sidebar a.active{
+
+    background:#4f8a52;
+
+    color:white;
+
+    box-shadow:0 5px 15px rgba(79,138,82,.35);
+}
+
+
+/* ICON MENU */
+
+.sidebar a i{
+
+    font-size:18px;
+
+}
+
+
+/* GARIS PEMBATAS */
+
+.sidebar::after{
+
+    content:"";
+
+    display:block;
+
+    height:1px;
+
+    width:80%;
+
+    margin:20px auto;
+
+    background:rgba(255,255,255,.2);
+
+}
+
+/* ======================
+    CONTENT
+======================*/
+
+.main-content{
+
+    margin-left:260px;
+
+    padding:35px;
+
+    transition:margin-left .3s ease;
+
+}
+
+/* ======================
+    PAGE HEADER
+======================*/
+
+.page-header{
+
+    margin-bottom:25px;
+
+    flex-wrap:wrap;
+
+    row-gap:12px;
+
+    column-gap:12px;
+
+}
+
+/* ======================
+    SIDEBAR TOGGLE (MOBILE)
+======================*/
+
+.sidebar-toggle-btn{
+
+    display:none;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    transition:.3s;
+
+}
+
+.sidebar-toggle-btn:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* Dark overlay behind the sidebar when it's open on mobile */
+
+.sidebar-overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:1040;
+
+    opacity:0;
+
+    transition:opacity .3s ease;
+
+}
+
+.sidebar-overlay.active{
+
+    display:block;
+
+    opacity:1;
+
+}
+
+/* ======================
+    NAVBAR
+======================*/
+
+.topbar{
+
+    background:white;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:30px;
+
+}
+
+/* ======================
+    STAT CARD
+======================*/
+
+.stat-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.stat-card h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.stat-card span{
+
+    color:var(--text-light);
+
+}
+
+/* ======================
+    TABLE
+======================*/
+
+.table{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.table thead{
+
+    background:var(--primary);
 
     color:white;
 
 }
 
-/* ===============================
-   LINK
-================================= */
+/* ======================
+    BADGE
+======================*/
 
-a{
+.badge-success{
 
-    color:#2E8B57;
+    background:#DCFCE7;
 
-}
+    color:#166534;
 
-a:hover{
+    padding:8px 12px;
 
-    color:#1E6F4F;
-
-}
-
-/* ===============================
-   ICON PASSWORD
-================================= */
-
-.input-group button{
-
-    border-radius:0 10px 10px 0;
+    border-radius:30px;
 
 }
 
-/* ===============================
-   MOBILE
-================================= */
+.badge-warning{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+    padding:8px 12px;
+
+    border-radius:30px;
+
+}
+
+.badge-danger{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+    padding:8px 12px;
+
+    border-radius:30px;
+
+}
+
+/* ======================
+    IMAGE
+======================*/
+
+img{
+
+    max-width:100%;
+
+}
+
+/* ======================
+    RESPONSIVE
+======================*/
 
 @media(max-width:992px){
 
-    .login-card{
+/* Sidebar berubah jadi drawer (off-canvas) yang tersembunyi di luar layar */
+.sidebar{
 
-        width:95%;
+    width:280px;
 
-        padding:30px;
+    transform:translateX(-100%);
 
-    }
+    transition:transform .3s ease;
+
+    z-index:1050;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.25);
 
 }
+
+.sidebar.active{
+
+    transform:translateX(0);
+
+}
+
+/* Konten selalu full width, sidebar tidak lagi mendorong margin */
+.main-content{
+
+    margin-left:0;
+
+    padding:25px;
+
+}
+
+/* Tampilkan tombol hamburger */
+.sidebar-toggle-btn{
+
+    display:flex;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.main-content{
+
+    padding:20px;
+
+}
+
+.title{
+
+    font-size:25px;
+
+}
+
+.top-navbar{
+
+    padding:15px 18px;
+
+    height:auto;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.navbar-left h4{
+
+    font-size:16px;
+
+}
+
+.navbar-left span{
+
+    display:none;
+
+}
+
+.navbar-right{
+
+    gap:12px;
+
+}
+
+.profile div{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.sidebar{
+
+    width:85%;
+
+    max-width:280px;
+
+}
+
+.btn-primary{
+
+    width:100%;
+
+}
+
 .card{
 
     border-radius:15px;
 
 }
 
-.btn{
+.main-content{
 
-    border-radius:10px;
+    padding:15px;
 
 }
-
-.navbar{
-
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
 
 }

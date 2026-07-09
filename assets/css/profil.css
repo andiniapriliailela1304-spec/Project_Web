@@ -1,0 +1,61 @@
+.page-header{
+    margin-bottom:25px;
+}
+
+.card{
+    border-radius:18px;
+}
+
+.card-header{
+    border-radius:18px 18px 0 0 !important;
+}
+
+.rounded-circle{
+    transition:.3s;
+}
+
+.rounded-circle:hover{
+    transform:scale(1.05);
+}
+
+.table th{
+    width:220px;
+    color:#065420;
+    font-weight:600;
+}
+
+.table td{
+    color:#55864b;
+}
+
+.modal-content{
+    border-radius:18px;
+}
+
+.btn{
+    border-radius:10px;
+}
+
+input.form-control,
+select.form-control,
+textarea.form-control{
+
+    border-radius:10px;
+
+}
+
+.input-group .btn{
+
+    border-radius:0 10px 10px 0;
+
+}
+
+@media(max-width:768px){
+
+    .table th{
+
+        width:140px;
+
+    }
+
+}

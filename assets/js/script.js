@@ -1,25 +1,19 @@
-function togglePassword(){
+// assets/js/script.js
 
-    let password=document.getElementById("password");
+document.addEventListener('DOMContentLoaded', function () {
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordInput = document.querySelector('#inputPassword');
 
-    let eye=document.getElementById("eyeIcon");
-
-    if(password.type==="password"){
-
-        password.type="text";
-
-        eye.classList.remove("bi-eye");
-
-        eye.classList.add("bi-eye-slash");
-
-    }else{
-
-        password.type="password";
-
-        eye.classList.remove("bi-eye-slash");
-
-        eye.classList.add("bi-eye");
-
+    // Cek jika elemen ada di halaman aktif (mencegah error di halaman lain)
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', function () {
+            // Tukar tipe input antara password dan text
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Tukar icon bootstrap clasess
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
     }
-
-}
+});

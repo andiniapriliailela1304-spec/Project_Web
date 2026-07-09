@@ -1,0 +1,288 @@
+/* assets/css/dashboard-mhs.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+.web-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%; /* Ubah dari 100vw menjadi 100% agar tidak meluap */
+    overflow-x: hidden;
+}
+
+/* SIDEBAR LUXURY MINIMALIS */
+.web-sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #004d27 0%, #006634 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    box-shadow: 6px 0 30px rgba(0, 102, 52, 0.05);
+}
+
+.sidebar-brand {
+    padding: 35px 28px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(212, 149, 17, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sidebar-logo {
+    width: 42px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.sidebar-brand h5 {
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 25px 16px;
+    margin: 0;
+    flex: 1;
+}
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-menu li a i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu li a:hover i {
+    transform: translateX(3px);
+}
+
+.sidebar-menu li.active a {
+    color: #ffffff;
+    background: linear-gradient(135deg, #d49511 0%, #b37e0d 100%);
+    box-shadow: 0 4px 15px rgba(212, 149, 17, 0.25);
+}
+
+/* AREA KONTEN UTAMA (PREMIUM SPACING) */
+.web-main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 45px 50px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Top Glassmorphism Navigation Bar */
+.top-interior-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.015);
+    border: 1px solid rgba(241, 245, 249, 1);
+    margin-bottom: 40px;
+}
+
+.greeting-text {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.user-name {
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-notif-web {
+    width: 46px;
+    height: 46px;
+    background-color: #f1f5f9;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.btn-notif-web:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.user-profile-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #334155;
+    padding: 6px 16px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+/* GRAFIK GRADIENT CARDS */
+.section-title-web {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    letter-spacing: -0.3px;
+}
+
+.stat-card-web {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.015);
+    border: 1px solid #edf2f7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card-web:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.04);
+}
+
+.stat-info-left h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.stat-info-left p {
+    color: #64748b;
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stat-icon-right {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: inset 0 -4px 10px rgba(0,0,0,0.03);
+}
+
+/* Skema Warna Neon-Soft Mewah */
+.card-web-tersedia .stat-icon-right { background-color: #fef3c7; color: #d49511; }
+.card-web-kosong .stat-icon-right { background-color: #dcfce7; color: #006634; }
+.card-web-digunakan .stat-icon-right { background-color: #ffedd5; color: #cc7a00; }
+
+/* PREMIUM TABLE CARD DESIGN */
+.web-table-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.015);
+    border: 1px solid #f1f5f9;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #64748b;
+    padding: 16px 20px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.table tbody td {
+    padding: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table img {
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Modifikasi Desain Badge Status */
+.badge-premium {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 992px) {
+    .web-sidebar { width: 85px; }
+    .sidebar-brand h5, .sidebar-menu li a span { display: none; }
+    .web-main-content { margin-left: 85px; padding: 30px; }
+}
